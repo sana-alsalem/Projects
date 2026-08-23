@@ -6,9 +6,11 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 
-# Reading the CSV file to DataFrame
-oil_df = pd.read_csv('oil_price_project/oil_price.csv')
+# Reading the CSV file to DataFrame 
+script_dir = os.path.dirname(os.path.abspath(__file__))
+csv_path = os.path.join(script_dir, 'oil_price.csv')
 
+oil_df = pd.read_csv(csv_path)
 # Renaming Columns
 oil_df.rename(columns={
     'دولار أمريكي للبرميل': 'US Dollars per Barrel',
