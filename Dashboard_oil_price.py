@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 
 
 # Reading the CSV file to DataFrame
-oil_df = pd.read_csv('/Users/sanaa/Desktop/Data_Science/Projects/Oil_Price/oil_price.csv')
+oil_df = pd.read_csv('https://github.com/sana-alsalem/Projects/blob/main/oil_price.csv')
 
 # Renaming Columns
 oil_df.rename(columns={
