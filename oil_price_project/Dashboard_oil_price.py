@@ -89,7 +89,8 @@ for event in Historical_Event:
             showlegend=True,
             legendgroup="events",
             legendgrouptitle_text="Historical Events",
-              # Title for the dashed lines section)
+              # Title for the dashed lines section
+        )
 fig_trend.update_layout(
     legend=dict(
     bordercolor="Black",  # Color of the legend box frame
