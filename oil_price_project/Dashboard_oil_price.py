@@ -92,7 +92,13 @@ for event in Historical_Event:
                 "Historical Events"
             ),  # Title for the dashed lines section
         )
+    fig_trend.update_layout(
+        legend=dict(
+        bordercolor="Black",  # Color of the legend box frame
+        borderwidth=1,        # Border thickness
+        bgcolor="rgba(255, 255, 255, 0.8)",  # Background color inside the box
     )
+)
 
 st.plotly_chart(fig_trend)
 
