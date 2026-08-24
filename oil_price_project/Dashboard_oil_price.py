@@ -99,6 +99,7 @@ for event in Historical_Event:
         bgcolor="rgba(255, 255, 255, 0.8)",  # Background color inside the box
     )
 )
+    )
 
 st.plotly_chart(fig_trend)
 
