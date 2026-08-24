@@ -46,8 +46,8 @@ st.markdown(
 container = st.container(border=True, width="content")
 container.markdown(
     "<p style='font-family: Arial, sans-serif; font-size: 18px; color: var(--text-color); line-height: 1.5;'>"
-    "Created by <b>Sana'a Salem Aloufi</b> | "
-    "<a href='https://www.linkedin.com/in/sana-aloufi' target='_blank' style='color: var(--primary-color);'>LinkedIn</a>"
+    "Created by <b>Sana'a Salem Al---</b> "
+    #"<a href='https://www.linkedin.com/in/sana-aloufi' target='_blank' style='color: var(--primary-color);'>LinkedIn</a>"
     "</p>",
     unsafe_allow_html=True,
 )
