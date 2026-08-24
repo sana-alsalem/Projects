@@ -89,16 +89,17 @@ for event in Historical_Event:
             showlegend=True,
             legendgroup="events",
             legendgrouptitle_text="Historical Events",
-              # Title for the dashed lines section
         )
+    )
+
+# Add a box around the legend
 fig_trend.update_layout(
     legend=dict(
-    bordercolor="Black",  # Color of the legend box frame
-    borderwidth=1,        # Border thickness
-    bgcolor="rgba(255, 255, 255, 0.8)",  # Background color inside the box
+        bordercolor="Black",  # Color of the legend box frame
+        borderwidth=1,        # Border thickness
+        bgcolor="rgba(255, 255, 255, 0.8)",  # Background color inside the box
     )
 )
-    )
 
 st.plotly_chart(fig_trend)
 
