@@ -46,7 +46,7 @@ st.markdown(
 container = st.container(border=True, width="content")
 container.markdown(
     "<p style='font-family: Arial, sans-serif; font-size: 18px; color: var(--text-color); line-height: 1.5;'>"
-    "Created by Data Scientist : <b>Sana'a Salem Al---</b> "
+    "Created by Data Scientist : <b>Sana'a Salem </b> "
     #"<a href='https://www.linkedin.com/in/sana-aloufi' target='_blank' style='color: var(--primary-color);'>LinkedIn</a>"
     "</p>",
     unsafe_allow_html=True,
@@ -88,15 +88,13 @@ for event in Historical_Event:
             line=dict(color=event["color"], dash="dash", width=2),
             showlegend=True,
             legendgroup="events",
-            legendgrouptitle_text=(
-                "Historical Events"
-            ),  # Title for the dashed lines section
-        )
-    fig_trend.update_layout(
-        legend=dict(
-        bordercolor="Black",  # Color of the legend box frame
-        borderwidth=1,        # Border thickness
-        bgcolor="rgba(255, 255, 255, 0.8)",  # Background color inside the box
+            legendgrouptitle_text="Historical Events",
+              # Title for the dashed lines section)
+fig_trend.update_layout(
+    legend=dict(
+    bordercolor="Black",  # Color of the legend box frame
+    borderwidth=1,        # Border thickness
+    bgcolor="rgba(255, 255, 255, 0.8)",  # Background color inside the box
     )
 )
     )
