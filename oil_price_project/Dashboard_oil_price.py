@@ -63,7 +63,7 @@ Historical_Event = [
     {"year": 2001, "name": "9/11 attacks", "color": "#7F8C8D"},                                    # Cool Gray
     {"year": 2005, "name": "Low spare<br> capacity", "color": "#D35400"},                              # Burnt Orange
     {"year": 2008, "name": "Global financial<br> collapse", "color": "#1B4F72"},                       # Deep Navy Blue
-    {"year": 2008, "name": "OPEC cuts<br> production targets<br> by 4.2M<br> barrels a day", "color": "#2196F3"},  # Bright Sky Blue
+    {"year": 2009, "name": "OPEC cuts production targets<br> by 4.2M barrels a day", "color": "#2196F3"},  # Bright Sky Blue
     {"year": 2015, "name": "OPEC production<br> quota unchanged<br> despite low oil prices", "color": "#009688"}, # Deep Teal
     {"year": 2020, "name": "Global pandemic<br> reduces oil demand", "color": "#9C27B0"},                # Bright Purple
     {"year": 2022, "name": "Russia invades<br> Ukraine", "color": "#FF5722"}                           # Orange Red
