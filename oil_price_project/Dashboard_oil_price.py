@@ -74,33 +74,63 @@ oils = st.multiselect('Select Oil Type :', oil_df['Oil Type'].unique(), default=
 chosen_oil = oil_df[oil_df['Oil Type'].isin(oils)]
 # Plotting Trend with line plot after Filtering
 st.subheader(f"Prices Trend per Barrel in (USD) for {oils}")
+import plotly.express as px
+import plotly.graph_objects as go
+import streamlit as st
 
+# 1. Create base line chart
 fig_trend = px.line(
     chosen_oil,
     x="Year",
     y="US Dollars per Barrel",
     color="Oil Type",
     markers=True,
+    title="Prices Trend per Barrel in (USD)",
 )
 
-y_min, y_max = 0, 100
+# 2. Add annotated pins instead of vertical dashed lines in the legend
+for idx, event in enumerate(Historical_Event):
+    year = event["year"]
+    event_name = event["name"]
+    event_color = event["color"]
 
-# 2. Add historical events under a separate group
-for event in Historical_Event:
-    fig_trend.add_trace(
-        go.Scatter(
-            x=[event["year"], event["year"]],
-            y=[y_min, y_max],
-            mode="lines",
-            name=event["name"],
-            line=dict(color=event["color"], dash="dash", width=2),
-            showlegend=True,
-            legendgroup="events",
-            legendgrouptitle_text="Historical Events",
+    # Match the price at that year for the chosen oil type
+    matching_data = chosen_oil[chosen_oil["Year"] == year]
+
+    if not matching_data.empty:
+        # Get price value dynamically
+        y_val = matching_data["US Dollars per Barrel"].values[0]
+
+        # Alternate height offset to prevent label overlapping in dense years
+        y_offset = -40 if idx % 2 == 0 else -80
+
+        fig_trend.add_annotation(
+            x=year,
+            y=y_val,
+            text=f"<b>{year}</b><br>{event_name}",
+            showarrow=True,
+            arrowhead=2,
+            arrowsize=1,
+            arrowwidth=1.5,
+            arrowcolor=event_color,
+            ax=0,
+            ay=y_offset,
+            font=dict(size=10, color="#111111"),
+            align="center",
+            bordercolor=event_color,
+            borderwidth=1,
+            borderpad=3,
+            bgcolor="rgba(255, 255, 255, 0.9)",
         )
-    )
 
-st.plotly_chart(fig_trend)
+# 3. Clean layout styling
+fig_trend.update_layout(
+    plot_bgcolor="white",
+    hovermode="x unified",
+    margin=dict(t=80, b=40, l=40, r=40),
+)
+
+st.plotly_chart(fig_trend, use_container_width=True)
 
 st.subheader(f"Price Change Direction per Barrel in (USD) for {oils}")
 fig_diff = px.bar(chosen_oil, x='Year', y='Difference', color='Oil Type')
