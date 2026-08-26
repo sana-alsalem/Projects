@@ -52,21 +52,21 @@ container.markdown(
     unsafe_allow_html=True,
 )
 Historical_Event = [
-    {"year": 1971, "name": "U.S. spare\n capacity\n exhausted", "color": "#8B4513"},                   # Saddle Brown
-    {"year": 1973, "name": "Arab Oil Embargo", "color": "#D9534F"},                                # Crimson / Coral
-    {"year": 1978, "name": "Iranian Revolution", "color": "#E67E22"},                              # Pumpkin Orange
-    {"year": 1980, "name": "Iran-Iraq War", "color": "#C0392B"},                                   # Dark Red
-    {"year": 1986, "name": "Saudis abandon swing producer role", "color": "#16A085"},             # Teal Green
-    {"year": 1990, "name": "Iraq invades Kuwait", "color": "#8E44AD"},                              # Dark Purple
-    {"year": 1997, "name": "Asian financial crisis", "color": "#2980B9"},                          # Strong Blue
-    {"year": 1999, "name": "OPEC cuts production targets by 1.7M barrels a day", "color": "#27AE60"},  # Emerald Green
+    {"year": 1971, "name": "U.S. spare<br> capacity<br> exhausted", "color": "#8B4513"},                   # Saddle Brown
+    {"year": 1973, "name": "Arab Oil<br> Embargo", "color": "#D9534F"},                                # Crimson / Coral
+    {"year": 1978, "name": "Iranian<br> Revolution", "color": "#E67E22"},                              # Pumpkin Orange
+    {"year": 1980, "name": "Iran-Iraq<br> War", "color": "#C0392B"},                                   # Dark Red
+    {"year": 1986, "name": "Saudis abandon<br> swing producer<br> role", "color": "#16A085"},             # Teal Green
+    {"year": 1990, "name": "Iraq invades<br> Kuwait", "color": "#8E44AD"},                              # Dark Purple
+    {"year": 1997, "name": "Asian financial<br> crisis", "color": "#2980B9"},                          # Strong Blue
+    {"year": 1999, "name": "OPEC cuts<br> production targets<br> by 1.7M<br> barrels a day", "color": "#27AE60"},  # Emerald Green
     {"year": 2001, "name": "9/11 attacks", "color": "#7F8C8D"},                                    # Cool Gray
-    {"year": 2005, "name": "Low spare capacity", "color": "#D35400"},                              # Burnt Orange
-    {"year": 2008, "name": "Global financial collapse", "color": "#1B4F72"},                       # Deep Navy Blue
-    {"year": 2008, "name": "OPEC cuts production targets by 4.2M barrels a day", "color": "#2196F3"},  # Bright Sky Blue
-    {"year": 2015, "name": "OPEC production quota unchanged despite low oil prices", "color": "#009688"}, # Deep Teal
-    {"year": 2020, "name": "Global pandemic reduces oil demand", "color": "#9C27B0"},                # Bright Purple
-    {"year": 2022, "name": "Russia invades Ukraine", "color": "#FF5722"}                           # Orange Red
+    {"year": 2005, "name": "Low spare<br> capacity", "color": "#D35400"},                              # Burnt Orange
+    {"year": 2008, "name": "Global financial<br> collapse", "color": "#1B4F72"},                       # Deep Navy Blue
+    {"year": 2008, "name": "OPEC cuts<br> production targets<br> by 4.2M<br> barrels a day", "color": "#2196F3"},  # Bright Sky Blue
+    {"year": 2015, "name": "OPEC production<br> quota unchanged<br> despite low oil prices", "color": "#009688"}, # Deep Teal
+    {"year": 2020, "name": "Global pandemic<br> reduces oil demand", "color": "#9C27B0"},                # Bright Purple
+    {"year": 2022, "name": "Russia invades<br> Ukraine", "color": "#FF5722"}                           # Orange Red
 ]
 st.markdown('<p style="color: #4CAF50; font-size: 18px; font-weight: bold;">Select Oil Type :</p>', unsafe_allow_html=True)
 oils = st.multiselect('Select Oil Type :', oil_df['Oil Type'].unique(), default='Arab Light', label_visibility="collapsed")
