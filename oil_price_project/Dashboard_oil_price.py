@@ -84,21 +84,6 @@ fig_trend = px.line(
     title="Prices Trend per Barrel in (USD)",
 )
 
-# 2. Add solid arrow lines in side legend
-for event in Historical_Event:
-    fig_trend.add_trace(
-        go.Scatter(
-            x=[None],
-            y=[None],
-            mode="lines",
-            name=event["name"],
-            line=dict(color=event["color"], width=2),
-            showlegend=True,
-            legendgroup="events",
-            legendgrouptitle_text="Historical Events",
-        )
-    )
-
 # 3. Add clean arrow annotations without text boxes
 for idx, event in enumerate(Historical_Event):
     year = event["year"]
