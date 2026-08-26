@@ -74,11 +74,7 @@ oils = st.multiselect('Select Oil Type :', oil_df['Oil Type'].unique(), default=
 chosen_oil = oil_df[oil_df['Oil Type'].isin(oils)]
 # Plotting Trend with line plot after Filtering
 st.subheader(f"Prices Trend per Barrel in (USD) for {oils}")
-import plotly.express as px
-import plotly.graph_objects as go
-import streamlit as st
 
-# 1. Create base line chart
 fig_trend = px.line(
     chosen_oil,
     x="Year",
@@ -88,21 +84,34 @@ fig_trend = px.line(
     title="Prices Trend per Barrel in (USD)",
 )
 
-# 2. Add annotated pins instead of vertical dashed lines in the legend
+# 2. Add solid arrow lines in side legend
+for event in Historical_Event:
+    fig_trend.add_trace(
+        go.Scatter(
+            x=[None],
+            y=[None],
+            mode="lines",
+            name=event["name"],
+            line=dict(color=event["color"], width=2),
+            showlegend=True,
+            legendgroup="events",
+            legendgrouptitle_text="Historical Events",
+        )
+    )
+
+# 3. Add clean arrow annotations without text boxes
 for idx, event in enumerate(Historical_Event):
     year = event["year"]
     event_name = event["name"]
     event_color = event["color"]
 
-    # Match the price at that year for the chosen oil type
     matching_data = chosen_oil[chosen_oil["Year"] == year]
 
     if not matching_data.empty:
-        # Get price value dynamically
         y_val = matching_data["US Dollars per Barrel"].values[0]
 
-        # Alternate height offset to prevent label overlapping in dense years
-        y_offset = -40 if idx % 2 == 0 else -80
+        # Alternating arrow height to prevent overlapping
+        y_offset = -50 if idx % 2 == 0 else -90
 
         fig_trend.add_annotation(
             x=year,
@@ -111,19 +120,19 @@ for idx, event in enumerate(Historical_Event):
             showarrow=True,
             arrowhead=2,
             arrowsize=1,
-            arrowwidth=1.5,
+            arrowwidth=1.8,
             arrowcolor=event_color,
             ax=0,
             ay=y_offset,
-            font=dict(size=10, color="#111111"),
+            font=dict(size=10, color="#222222"),
             align="center",
-            bordercolor=event_color,
-            borderwidth=1,
-            borderpad=3,
-            bgcolor="rgba(255, 255, 255, 0.9)",
+            # --- REMOVE BOXES & BACKGROUND HERE ---
+            borderwidth=0,  # Removes the box border completely
+            borderpad=0,  # Removes padding inside the box
+            bgcolor="rgba(0,0,0,0)",  # Makes background transparent
         )
 
-# 3. Clean layout styling
+# 4. Layout formatting
 fig_trend.update_layout(
     plot_bgcolor="white",
     hovermode="x unified",
