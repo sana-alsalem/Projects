@@ -52,7 +52,7 @@ container.markdown(
     unsafe_allow_html=True,
 )
 Historical_Event = [
-    {"year": 1971, "name": "U.S. spare capacity exhausted", "color": "#8B4513"},                   # Saddle Brown
+    {"year": 1971, "name": "U.S. spare\n capacity\n exhausted", "color": "#8B4513"},                   # Saddle Brown
     {"year": 1973, "name": "Arab Oil Embargo", "color": "#D9534F"},                                # Crimson / Coral
     {"year": 1978, "name": "Iranian Revolution", "color": "#E67E22"},                              # Pumpkin Orange
     {"year": 1980, "name": "Iran-Iraq War", "color": "#C0392B"},                                   # Dark Red
